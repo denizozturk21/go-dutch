@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightblue;
 }
 
 .App-logo {
@@ -35,4 +36,88 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.cars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.car img{
+  width: 50%;
+  align-self: center;
+}
+
+.cars {
+  padding:5%;
+}
+.car {
+  padding:5%;
+  background-color: lightsteelblue;
+  border: solid;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  -ms-grid-column-align: center;
+}
+
+.button {
+  background-color: blanchedalmond;
+  padding:5%;
+}
+
+.row {
+  align-content: center;
+}
+
+.carsCart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  -ms-grid-column-align: center;
+}
+
+.carCart img{
+  width: 40%;
+}
+
+.carsCart {
+  padding:5%;
+  
+}
+.carCart {
+  padding:5%;
+  background-color:rosybrown;
+  border: solid;
+}
+
+.table {
+  table-layout: auto;
+  width: 100%;
+  align-content: center;
+  padding:5%;
+  
+}
+
+.checkout_amounts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10%;
+}
+
+.filtering {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.filteringItem {
+  padding: 2%;
+}
+
+.centerIMG {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
