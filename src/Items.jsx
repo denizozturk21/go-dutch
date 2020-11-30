@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+//constants to be used later
 const LAND_ROVER = 'Land Rover Motors';
 const BMW = 'BMW';
 const MERCEDES = 'Mercedes-Benz';
@@ -9,10 +10,11 @@ const SEDAN = 'Sedan'
 const SUV = 'Sports Utility Vehicles'
 const SPORTS = 'Sports Cars'
 const ALL = 'All'
-const INC = 'Increasing'
-const DEC = 'Decreasing'
+const INC = '(+)Low To High'
+const DEC = '(-)High to Low'
 
 export default function Items({ setCart, cart }) {
+    //array of cars to simulate information from backend
   const [items] = useState([
     {
         category: SUV,
@@ -101,6 +103,7 @@ export default function Items({ setCart, cart }) {
       },
   ]);
 
+  //append the new element to the existing cart
   const addToCart = (car) => {
     let newCart = [...cart];
     let itemInCart = newCart.find(
@@ -117,11 +120,12 @@ export default function Items({ setCart, cart }) {
     }
     setCart(newCart);
   };
-
+  //default settings to show all cars low to high price initially
   const [category, setCategory] = useState(ALL);
   const [brand, setBrand] = useState(ALL);
   const [sortMethod, setSortMethod] = useState(INC);
 
+  //filters cars in a certain category
   const getCarsInCategory = () => {
     if (category === ALL) {
         return items;
@@ -130,7 +134,7 @@ export default function Items({ setCart, cart }) {
     }
     
   };
-
+  //filters cars that are a certain brand
   const getCarsInBrand = () => {
     if (brand === ALL) {
         return items;
@@ -139,7 +143,7 @@ export default function Items({ setCart, cart }) {
     }
     
   };
-
+  //gets the intersecting set of cars from preferred attributes and applies sorting method
   const getPreferredCars = () => {
     let d1 = getCarsInBrand();
     let d2 = getCarsInCategory();
@@ -157,7 +161,8 @@ export default function Items({ setCart, cart }) {
     
     return sortCars(temp);
   }
-
+  //listedCars will be a number that is -1 for increasing order and 1 for decreasing
+  //helper to sort the cars to be displayed by price.
   const sortCars = (listedCars) => {
     return listedCars.sort((a, b) => {
        var cof = 1;
@@ -174,10 +179,17 @@ export default function Items({ setCart, cart }) {
    });
  }
 
-
+//returns filtered list of components and displays sorting buttons in HTML template
   return (
     <>
-      <h1>Products</h1>
+      <h1>Go-Dutch Motors</h1>
+      <p>Go-Dutch is a website where you can browse cars
+           that are not used by their owners for a period of time, and you can 
+           lease a variety of secondhand cars while paying a small shipping cost while 
+           we switch your car within the same lease period. 
+           Respectively, you have your filtering options, a catalog of cars where you can save 
+           cars you want into your cart, and a section where you can see what cars are in your cart 
+           along with costs/discounts and checkout option. </p>
       
       <div className = "filtering">
       
@@ -217,7 +229,7 @@ export default function Items({ setCart, cart }) {
             <h4>Est. Monthly Cost: <b>${car.cost}</b></h4>
             <img src={car.image} alt={car.name} class="centerIMG"/>
             <button onClick={() => addToCart(car)}>
-              Add {car.name} for one month
+              +Add {car.name} for one month
             </button>
           </div>
         ))}
