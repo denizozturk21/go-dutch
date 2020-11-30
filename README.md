@@ -1,3 +1,8 @@
+My code has two functional components: Cart and Items
+In a real car dealership Items would correspond to Sales department and Cart would be accounting. I use hooks and I only call my components on the highest level. Items has a list of all the products and setState is used to create an empty cart. From then on both Cart and Items take in cart and setCart and the only state they have to communicate is cart. All car elements are inside items and I have helpers to filter and sort as needed. I don't need to change the products list nor I have to update state just show sub categories of the 12 cars hardcoded. In the program, the user can only trigger state changes when a different option in selected within the select HTML elements or if a button for setting cart is clicked/quantity of cars is changed. Items only shows cars and lets the user add them to cart, and the cars added to cart are communicated to Cart through state. Cart's function is to remove/edit quantity of cars, checkout, and aggregate prices. The aggregated prices, except the car total, are irrelevant since this business doesn't really exist(yet), and just serve a dummy function as to how it would look like.So, my organization is hooks on App.js and each component takes in cart and setCart set by useState, which is how items added or removed in cart are communicated between Cart and Items.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
